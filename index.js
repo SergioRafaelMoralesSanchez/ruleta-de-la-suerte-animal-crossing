@@ -15,7 +15,6 @@ const crypto = require('./src/crypto')
 
 
 io.on("connection", socket => {
-    setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
 
     socket.on("addUser", usuario => {
         if (usuario !== undefined) {
@@ -62,10 +61,10 @@ io.on("connection", socket => {
 });
 
 app.use(express.static(__dirname + '/dist/PasaPalabra'));
- 
-app.get('*', function(req,res) {
-  // Replace the '/dist/<to_your_project_name>/index.html'
-  res.sendFile(path.join(__dirname + '/dist/PasaPalabra/index.html'));
+
+app.get('*', function (req, res) {
+    // Replace the '/dist/<to_your_project_name>/index.html'
+    res.sendFile(path.join(__dirname + '/dist/PasaPalabra/index.html'));
 });
 // Start the app by listening on the default Heroku port
 // app.listen(port);

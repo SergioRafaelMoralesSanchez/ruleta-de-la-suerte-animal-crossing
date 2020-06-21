@@ -47,8 +47,6 @@ export class AdminPanelComponent implements OnInit {
       ""
     );
     this.doSocketServices();
-    this.socketService.time.subscribe((hora) => {
-    });
   }
   doSocketServices() {
     this.checkLogin();

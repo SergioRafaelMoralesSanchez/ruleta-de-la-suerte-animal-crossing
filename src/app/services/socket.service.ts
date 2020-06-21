@@ -11,7 +11,6 @@ export class SocketService {
   currentUser = this.socket.fromEvent<Usuario>("currentUser");
   users = this.socket.fromEvent<Usuario[]>("users");
   currentPanel = this.socket.fromEvent<Panel>("panel");
-  time = this.socket.fromEvent<Panel>("time");
 
   addUser(user: Usuario) {
     this.socket.connect();
