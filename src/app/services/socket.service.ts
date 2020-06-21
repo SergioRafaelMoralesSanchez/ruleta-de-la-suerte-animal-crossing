@@ -18,7 +18,6 @@ export class SocketService {
     this.socket.emit("addUser", user);
   }
   updatePanel(panel: Panel) {
-    console.log("panel" + panel);
     this.socket.connect();
     this.socket.emit("changePanel", panel);
   }

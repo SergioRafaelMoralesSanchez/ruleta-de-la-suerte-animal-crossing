@@ -1,4 +1,3 @@
-console.log("--------------------------------------------")
 var clicame = true;
 var youSpinMe;
 var lastAngle = 0;

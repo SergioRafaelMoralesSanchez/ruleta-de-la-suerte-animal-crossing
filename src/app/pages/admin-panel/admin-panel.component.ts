@@ -48,14 +48,12 @@ export class AdminPanelComponent implements OnInit {
     );
     this.doSocketServices();
     this.socketService.time.subscribe((hora) => {
-      console.log(hora);
     });
   }
   doSocketServices() {
     this.checkLogin();
     this.socketService.addUser(this.adminUser);
     this.socketService.users.subscribe((users) => {
-      console.log("usuarios");
       this.usuarios = users;
     });
     this.socketService.currentUser.subscribe((user) => {
@@ -156,7 +154,6 @@ export class AdminPanelComponent implements OnInit {
     }
   }
   checkLastLines() {
-    console.log(this.adminPanel.texto[this.adminPanel.texto.length - 1]);
     if (this.adminPanel.texto[this.adminPanel.texto.length - 1].length >= 12) {
       const lastLineArry = this.adminPanel.texto[
         this.adminPanel.texto.length - 1
@@ -211,7 +208,6 @@ export class AdminPanelComponent implements OnInit {
     this.socketService.updatePanel(this.adminPanel);
   }
   updateUsers() {
-    console.log(this.usuarios);
     this.socketService.updateUsers(this.usuarios);
   }
 
@@ -246,7 +242,6 @@ export class AdminPanelComponent implements OnInit {
     );
   }
   cambiarturno(user: Usuario) {
-    console.log("asdassdaasd");
     this.usuarios = this.usuarios.map((usr) => {
       usr.id === user.id ? (usr.isTurno = user.isTurno) : (usr.isTurno = false);
       return usr;

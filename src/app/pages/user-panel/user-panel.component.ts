@@ -50,10 +50,8 @@ export class UserPanelComponent implements OnInit {
     });
 
     this.socketService.users.subscribe((usuarios) => {
-      console.log("Actualizamos usuarios");
       usuarios.forEach((user) => {
         if (user.id === this.usuario.id) {
-          console.log("me actualizan");
           this.usuario = user;
         }
       });

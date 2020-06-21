@@ -12,7 +12,6 @@ export class PanelComponent implements OnInit {
   constructor(private socketService: SocketService) {}
 
   ngOnInit() {
-    console.log(this.panel);
   }
   giveMeClass(char: string, i: number, j: number) {
     let position = "";

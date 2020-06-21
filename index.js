@@ -18,7 +18,6 @@ io.on("connection", socket => {
     setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
 
     socket.on("addUser", usuario => {
-        console.log(usuario)
         if (usuario !== undefined) {
 
             if (currentRoom.usuarios.length < 4) {

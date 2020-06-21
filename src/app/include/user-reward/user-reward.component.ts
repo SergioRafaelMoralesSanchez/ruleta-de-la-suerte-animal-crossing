@@ -52,8 +52,6 @@ export class UserRewardComponent implements OnInit {
 
   ngOnInit() {
     setInterval(() => {
-      console.log("animasion");
-      console.log(this.usuario.isTurno);
 
       if (this.usuario.isTurno) {
         this.estateAnimation =
