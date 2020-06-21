@@ -1,0 +1,20 @@
+<div class="container" *ngIf="usuario">
+  <div class="mt-5 text-center p-3 bg-info" *ngIf="!ready">
+    <h2>Esperando al administrador</h2>
+  </div>
+  <div class="mt-5">
+    <app-panel
+      [panel]="userPanel === undefined ? first : userPanel"
+    ></app-panel>
+  </div>
+  <div class="mt-5">
+    <div class="mx-auto">
+      <app-ruleta [usuario]="usuario"></app-ruleta>
+    </div>
+  </div>
+  <div class="mt-5 row">
+    <div *ngFor="let user of usuarios" class="mr-auto">
+      <app-user-reward *ngIf="!user.admin" [usuario]="user"></app-user-reward>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container-fluid" *ngIf="panel">
+  <div class="mb-5 row spoilerDiv mx-auto">
+    <span class="spoilerText"> {{ panel.nombreRonda }} </span>
+  </div>
+  <div class="row mx-auto" *ngFor="let word of panel.texto; index as i">
+    <div *ngIf="word.length == 12" [class]="giveMeThaClassNinja(i, 'Left')">
+      &nbsp;
+    </div>
+    <div
+      *ngFor="let char of word.split(''); index as j"
+      [class]="giveMeClass(char, i, j)"
+    >
+      <span> {{ filterCharacters(char) }} </span>
+    </div>
+    <div *ngIf="word.length == 12" [class]="giveMeThaClassNinja(i, 'Right')">
+      &nbsp;
+    </div>
+  </div>
+
+  <div class="mt-5 row spoilerDiv mx-auto">
+    <span class="spoilerText"> {{ panel.spoiler }} </span>
+  </div>
+</div>

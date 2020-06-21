@@ -1,0 +1,16 @@
+.container {
+  width: 85%;
+}
+.panelControls {
+  background-color: rgb(124, 231, 255);
+  border-radius: 10px;
+  border: 2px solid #007cff;
+  padding: 20px;
+}
+.icoReward{
+    width: 30px;
+    opacity: 50%;
+}
+.selected{
+    opacity: 100%;
+}

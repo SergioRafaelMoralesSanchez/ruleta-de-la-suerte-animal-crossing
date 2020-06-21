@@ -1,0 +1,43 @@
+.redReward {
+  background-image: url("../../../assets/imgs/redReward.png");
+}
+.blueReward {
+  background-image: url("../../../assets/imgs/blueReward.png");
+}
+.yellowReward {
+  background-image: url("../../../assets/imgs/yellowReward.png");
+}
+.reward {
+  background-size: 340px 152px;
+  height: 152px;
+  width: 340px;
+  position: relative;
+  text-shadow: -2px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
+  font-size: 2em;
+  color: white;
+}
+.bayas {
+  position: absolute;
+  left: 75px;
+  top: 32px;
+}
+.comodin {
+  position: absolute;
+  left: 75px;
+  top: 85px;
+}
+.mueble {
+  position: absolute;
+  left: 180px;
+  top: 85px;
+}
+.fruta {
+  position: absolute;
+  left: 280px;
+  top: 32px;
+}
+.ayuda {
+  position: absolute;
+  left: 280px;
+  top: 85px;
+}

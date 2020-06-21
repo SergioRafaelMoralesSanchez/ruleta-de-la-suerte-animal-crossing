@@ -1,0 +1,15 @@
+<div class="container divRuleta">
+  <img src="./assets/imgs/pointer.png" alt="" class="marcadorRuleta" />
+  <img
+    src="./assets/imgs/RULETA.png"
+    id="ruleta"
+    [class]="usuario.canRuleta ? '' : 'disabled'"
+    alt=""
+    title="{{
+      usuario.canRuleta
+        ? 'Vamos clicame para'
+        : 'Por ahora no puedes tirar la ruleta'
+    }}"
+    (click)="aPorElBoteJS()"
+  />
+</div>

@@ -1,0 +1,78 @@
+.card {
+  display: inline-block;
+  width: 70px;
+  height: 95px;
+  font-size: 3em;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 10px 0;
+  background: transparent;
+  border: transparent;
+  border-radius: 0px;
+}
+.ninja {
+  height: 105px;
+  width: 80px;
+}
+
+.ninjaTopLeft {
+  border-right: 10px solid #acb3ae;
+  border-bottom: 10px solid #acb3ae;
+}
+
+.ninjaTopRight {
+  border-left: 10px solid #acb3ae;
+  border-bottom: 10px solid #acb3ae;
+}
+.ninjaBottomRight {
+  border-left: 10px solid #acb3ae;
+  border-top: 10px solid #acb3ae;
+}
+.ninjaBottomLeft {
+  border-right: 10px solid #acb3ae;
+  border-top: 10px solid #acb3ae;
+}
+.cardBorderTop {
+  height: 105px;
+  border-top: 10px solid #acb3ae;
+}
+.cardBorderBottom {
+  height: 105px;
+  border-bottom: 10px solid #acb3ae;
+}
+.cardMiddleLeft {
+  border-left: 10px solid #acb3ae;
+  width: 80px;
+}
+.cardMiddleRight {
+  width: 80px;
+  border-right: 10px solid #acb3ae;
+}
+
+.blue {
+  background: #000000;
+  background-image: url("../../../assets/imgs/blue.png");
+}
+
+.white {
+  background: #000000;
+  background-image: url("../../../assets/imgs/white.png");
+}
+/* Spoiler */
+
+.spoilerDiv {
+  background-image: url("../../../assets/imgs/spoiler.png");
+  width: 1000px;
+  height: 100px;
+  background-size: 1000px 100px;
+}
+
+.spoilerText {
+  font-size: 3em;
+  margin: auto;
+  text-shadow: -3px 0 black, 0 3px black, 1px 0 black, 0 -1px black;
+  color: white;
+}
+.container-fluid {
+  width: 95%;
+}

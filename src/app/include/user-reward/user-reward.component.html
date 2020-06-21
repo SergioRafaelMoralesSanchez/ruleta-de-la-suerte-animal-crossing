@@ -1,0 +1,13 @@
+<div  [@TurnoUsuario]="estateAnimation">
+  <div class="text-center">
+    <h2 class="">{{ usuario.nombre | uppercase }}</h2>
+  </div>
+  <div class="{{ usuario.color }}Reward reward">
+    <!-- {{ usuario | json }} -->
+    <span class="bayas">{{ usuario.rondaActual.bayas }}</span>
+    <span class="fruta">{{ usuario.rondaActual.fruta }}</span>
+    <span class="comodin">{{ usuario.rondaActual.comodin }}</span>
+    <span class="mueble">{{ usuario.rondaActual.mueble }}</span>
+    <span class="ayuda">{{ usuario.rondaActual.ayudaFinal }}</span>
+  </div>
+</div>

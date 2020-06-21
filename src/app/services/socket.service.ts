@@ -1,0 +1,41 @@
+import { Injectable } from "@angular/core";
+import { Usuario } from "../models/usuario";
+import { Socket } from "ngx-socket-io";
+import { Panel } from "../models/panel";
+@Injectable({
+  providedIn: "root",
+})
+export class SocketService {
+  constructor(private socket: Socket) {}
+  logInResponse = this.socket.fromEvent<boolean>("logInResponse");
+  currentUser = this.socket.fromEvent<Usuario>("currentUser");
+  users = this.socket.fromEvent<Usuario[]>("users");
+  currentPanel = this.socket.fromEvent<Panel>("panel");
+  time = this.socket.fromEvent<Panel>("time");
+
+  addUser(user: Usuario) {
+    this.socket.connect();
+    this.socket.emit("addUser", user);
+  }
+  updatePanel(panel: Panel) {
+    console.log("panel" + panel);
+    this.socket.connect();
+    this.socket.emit("changePanel", panel);
+  }
+  updateUsers(users: Usuario[]) {
+    this.socket.connect();
+    this.socket.emit("updateUsers", users);
+  }
+  checkLogin(password: string) {
+    this.socket.emit("checkLogIn", password);
+  }
+  updateUser(user: Usuario) {
+    this.socket.connect();
+
+    this.socket.emit("updateUser", user);
+  }
+  deleteUser(user: Usuario) {
+    this.socket.connect();
+    this.socket.emit("removeUser", user);
+  }
+}

@@ -1,0 +1,17 @@
+.marcadorRuleta {
+  position: absolute;
+  left: 240px;
+  z-index: 10;
+}
+#ruleta {
+  margin-top: 25px;
+  width: 500px;
+}
+.divRuleta {
+  position: relative;
+  margin: auto;
+  width: 542px
+}
+.disabled{
+  opacity: 80%;
+}

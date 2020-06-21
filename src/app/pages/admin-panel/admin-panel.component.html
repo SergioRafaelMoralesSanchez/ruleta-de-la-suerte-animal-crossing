@@ -1,0 +1,208 @@
+<div class="container" *ngIf="logged">
+  <div class="mt-5" style="min-height: 450px;">
+    <app-panel [panel]="adminPanel"></app-panel>
+  </div>
+  <div class="container mt-5">
+    <div class="mx-auto panelControls">
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label class="font-weight-bold" for="panelInput"
+              >Frase del panel</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="panelInput"
+              placeholder="Frase del panel"
+              (keyup)="vamohAEllo()"
+              [(ngModel)]="text"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label class="font-weight-bold" for="panelInput">Pista</label>
+            <input
+              type="text"
+              class="form-control"
+              id="panelInput"
+              placeholder="Pista del Panel"
+              [(ngModel)]="adminPanel.spoiler"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label class="font-weight-bold" for="rondaInput"
+              >Ronda Actual</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="rondaInput"
+              placeholder="Ronda actual"
+              [(ngModel)]="adminPanel.nombreRonda"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              (change)="vamohAEllo()"
+              [(ngModel)]="showText"
+              id="defaultCheck1"
+            />
+            <label
+              class="form-check-label font-weight-bold"
+              for="defaultCheck1"
+            >
+              Mostrar Todo
+            </label>
+          </div>
+        </div>
+        <div class="col-9">
+          <div
+            class="d-inline-block"
+            *ngFor="let character of adminPanel.charsPermitted"
+          >
+            <button
+              type="button"
+              class="btn btn-dark"
+              (click)="deleteFromPremited(character)"
+              *ngIf="character !== ' '"
+            >
+              {{ character }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12">
+          <button
+            type="button"
+            class="float-right btn btn-success"
+            (click)="updatePanel()"
+          >
+            Actualizar Panel
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5">
+      <div *ngFor="let user of usuarios; index as i">
+        <div *ngIf="!user.admin" class="row my-5 panelControls">
+          <div class="mr-auto">
+            <app-user-reward [usuario]="user"></app-user-reward>
+          </div>
+          <div class="ml-auto" style="position: relative;">
+            <div class="row">
+              <div class="col-8">
+                <div
+                  class="mr-4 d-inline-block"
+                  *ngFor="let img of imgs; index as j"
+                  (click)="cargarRecompensasUsuario(i, j)"
+                >
+                  <img
+                    src="../../../assets/imgs/{{ img }}.png"
+                    [class]="givemePointed(i, j)"
+                  />
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    [(ngModel)]="user.isTurno"
+                    [ngModelOptions]="{ standalone: true }"
+                    (change)="cambiarturno(user)"
+                    id="turnoCheck{{ user.id }}"
+                  />
+                  <label class="form-check-label" for="turnoCheck{{ user.id }}"
+                    >¿Es su turno?</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    [(ngModel)]="user.canRuleta"
+                    [ngModelOptions]="{ standalone: true }"
+                    id="ruletaCheck{{ user.id }}"
+                  />
+                  <label class="form-check-label" for="ruletaCheck{{ user.id }}"
+                    >¿Ruleta?</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-6">
+                <input
+                  *ngIf="inputCheckUser(user, 0)"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="user.rondaActual.bayas"
+                />
+                <input
+                  *ngIf="inputCheckUser(user, 1)"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="user.rondaActual.fruta"
+                />
+                <input
+                  *ngIf="inputCheckUser(user, 2)"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="user.rondaActual.comodin"
+                />
+                <input
+                  *ngIf="inputCheckUser(user, 3)"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="user.rondaActual.mueble"
+                />
+                <input
+                  *ngIf="inputCheckUser(user, 4)"
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="user.rondaActual.ayudaFinal"
+                />
+              </div>
+            </div>
+            <div class="row mt-3" style="position: relative;">
+              <div class="col-12 d-flex align-bottom">
+                <div class="mr-auto">
+                  <span *ngIf="user.resultadoRuleta">
+                    Resultado de la ruleta: {{ user.resultadoRuleta }}
+                  </span>
+                </div>
+                <div class="ml-auto">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="updateUsers()"
+                  >
+                    Actualizar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- {{ currentUser | json }} -->
+</div>
