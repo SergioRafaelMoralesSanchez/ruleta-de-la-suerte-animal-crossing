@@ -15,7 +15,7 @@ import { UserRewardComponent } from "./include/user-reward/user-reward.component
 import { HomeComponent } from "./pages/home/home.component";
 import { environment } from "./../environments/environment";
 const config: SocketIoConfig = {
-  url: environment.apiUrl,
+  url: "/",
   options: { forceNew: false },
 };
 
