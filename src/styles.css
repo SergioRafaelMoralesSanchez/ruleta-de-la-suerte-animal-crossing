@@ -12,4 +12,5 @@ body {
   background-size: 300px;
   overflow-x: hidden;
   height: auto;
+  min-width: 380px;
 }

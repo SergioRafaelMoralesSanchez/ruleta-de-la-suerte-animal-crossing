@@ -60,14 +60,12 @@ io.on("connection", socket => {
 
 });
 
-app.use(express.static(__dirname + '/dist/PasaPalabra'));
+// app.use(express.static(__dirname + '/dist/PasaPalabra'));
 
-app.get('*', function (req, res) {
-    // Replace the '/dist/<to_your_project_name>/index.html'
-    res.sendFile(path.join(__dirname + '/dist/PasaPalabra/index.html'));
-});
-// Start the app by listening on the default Heroku port
-// app.listen(port);
+// app.get('*', function (req, res) {
+//     // Replace the '/dist/<to_your_project_name>/index.html'
+//     res.sendFile(path.join(__dirname + '/dist/PasaPalabra/index.html'));
+// });
 
 server.listen(PORT, () => {
     console.log(`started on port: ${PORT}`);

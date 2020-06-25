@@ -14,6 +14,7 @@
               type="text"
               class="form-control"
               id="panelInput"
+              autocomplete="off"
               placeholder="Frase del panel"
               (keyup)="vamohAEllo()"
               [(ngModel)]="text"
@@ -29,6 +30,7 @@
               type="text"
               class="form-control"
               id="panelInput"
+              autocomplete="off"
               placeholder="Pista del Panel"
               [(ngModel)]="adminPanel.spoiler"
             />
@@ -45,6 +47,7 @@
               type="text"
               class="form-control"
               id="rondaInput"
+              autocomplete="off"
               placeholder="Ronda actual"
               [(ngModel)]="adminPanel.nombreRonda"
             />
@@ -60,12 +63,9 @@
               value=""
               (change)="vamohAEllo()"
               [(ngModel)]="showText"
-              id="defaultCheck1"
+              id="showText"
             />
-            <label
-              class="form-check-label font-weight-bold"
-              for="defaultCheck1"
-            >
+            <label class="form-check-label font-weight-bold" for="showText">
               Mostrar Todo
             </label>
           </div>
@@ -106,7 +106,7 @@
           </div>
           <div class="ml-auto" style="position: relative;">
             <div class="row">
-              <div class="col-8">
+              <div class="col-8 text-nowrap">
                 <div
                   class="mr-4 d-inline-block"
                   *ngFor="let img of imgs; index as j"
@@ -136,6 +136,7 @@
                   <input
                     type="checkbox"
                     class="form-check-input"
+                    (click)="user.isTurno = true; cambiarturno(user)"
                     [(ngModel)]="user.canRuleta"
                     [ngModelOptions]="{ standalone: true }"
                     id="ruletaCheck{{ user.id }}"

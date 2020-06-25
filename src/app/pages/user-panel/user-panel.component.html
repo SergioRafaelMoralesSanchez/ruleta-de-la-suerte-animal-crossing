@@ -1,5 +1,5 @@
-<div class="container" *ngIf="usuario">
-  <div class="mt-5 text-center p-3 bg-info" *ngIf="!ready">
+<div class="container mb-5" *ngIf="usuario">
+  <div class="mt-5 text-center p-3 bg-info text-white" *ngIf="!ready">
     <h2>Esperando al administrador</h2>
   </div>
   <div class="mt-5">
@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="mt-5 row">
-    <div *ngFor="let user of usuarios" class="mr-auto">
+    <div *ngFor="let user of usuarios" class="mx-auto mt-3">
       <app-user-reward *ngIf="!user.admin" [usuario]="user"></app-user-reward>
     </div>
   </div>

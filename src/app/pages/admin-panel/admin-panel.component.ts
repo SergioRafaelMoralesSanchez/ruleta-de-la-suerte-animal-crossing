@@ -17,13 +17,12 @@ export class AdminPanelComponent implements OnInit {
   logged = false;
   adminPanel = new Panel(
     "sala",
-    ["VOY CONTIGO ", "  PIPO Y CON  ", "JAMON DE YO "],
     [],
-    "Me cago en la leche Merche",
+    [],
+    "",
     ""
   );
-  title = "PasaPalabra";
-  text = "voy contigo pipo y con jamon de yo";
+   text = "TEXTO DE EJEMPLO HOLA MUY BUENAS";
   showText = false;
   adminUser: Usuario;
   currentUserIndex: number;
