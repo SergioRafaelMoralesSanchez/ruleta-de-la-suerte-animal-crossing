@@ -1,80 +1,55 @@
-@media (min-width: 1200px) {
-  .marcadorRuleta {
-    width: 7%;
-    position: absolute;
-    left: 46%;
-    z-index: 10;
-  }
-  #ruleta {
-    margin-top: 25px;
-    width: 100%;
-  }
-  .divRuleta {
-    position: relative;
-    margin: auto;
-    width: 50%;
-  }
-  .disabled {
-    opacity: 80%;
-  }
+.marcadorRuleta {
+  width: 7%;
+  position: absolute;
+  left: 46%;
+  z-index: 10;
 }
+#ruleta {
+  margin-top: 25px;
+  width: 100%;
+}
+.divRuleta {
+  position: relative;
+  margin: auto;
+  width: 50%;
+}
+.disabled {
+  opacity: 80%;
+}
+
 @media (max-width: 1200px) {
   .marcadorRuleta {
     width: 6%;
-    position: absolute;
     left: 46.5%;
-    z-index: 10;
   }
   #ruleta {
     margin-top: 20px;
-    width: 100%;
   }
   .divRuleta {
-    position: relative;
-    margin: auto;
     width: 60%;
-  }
-  .disabled {
-    opacity: 80%;
   }
 }
 @media (max-width: 1000px) {
   .marcadorRuleta {
     width: 7%;
-    position: absolute;
     left: 46%;
-    z-index: 10;
   }
   #ruleta {
     margin-top: 20px;
-    width: 100%;
   }
   .divRuleta {
-    position: relative;
-    margin: auto;
     width: 65%;
-  }
-  .disabled {
-    opacity: 80%;
   }
 }
 @media (max-width: 760px) {
   .marcadorRuleta {
     width: 7%;
-    position: absolute;
     left: 46%;
-    z-index: 10;
   }
   #ruleta {
     margin-top: 15px;
-    width: 100%;
   }
   .divRuleta {
-    position: relative;
-    margin: auto;
     width: 70%;
-  }
-  .disabled {
-    opacity: 80%;
   }
 }

@@ -1,7 +1,7 @@
 var clicame = true;
 var youSpinMe;
 var lastAngle = 0;
-aaryPremios = ["quiebra", "premio", "x2", "1000", "se lo doy", "quiebra", "100", "75", "comodin", "pregunta",
+aaryPremios = ["Quiebra", "Premio", "x2", "1000", "se lo doy", "quiebra", "100", "75", "comodin", "pregunta",
     "500", "ayuda final", "50", "200", "1/2", "pierde turno", "cesta", "25", "mueble", "300"]
 function updateClicame() {
     let result = ""

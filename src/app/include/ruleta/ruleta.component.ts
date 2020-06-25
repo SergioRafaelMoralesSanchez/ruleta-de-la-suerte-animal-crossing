@@ -25,9 +25,4 @@ export class RuletaComponent implements OnInit {
       }
     }
   }
-  lanzarRuleta(resultado: string) {
-    this.usuario.resultadoRuleta =
-      "_" + Math.random().toString(36).substr(2, 9);
-    this.usuario.canRuleta = false;
-  }
 }

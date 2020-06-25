@@ -92,5 +92,18 @@ export class UserPanelComponent implements OnInit {
         this.socketService.addUser(this.usuario);
       },
     });
+    // this.usuario = new Usuario(
+    //   null,
+    //   false,
+    //   "nombre",
+    //   "",
+    //   "",
+    //   new Recompensas(0, 0, 0, 0, 0),
+    //   new Recompensas(0, 0, 0, 0, 0),
+    //   false,
+    //   false,
+    //   ""
+    // );
+    // this.socketService.addUser(this.usuario);
   }
 }

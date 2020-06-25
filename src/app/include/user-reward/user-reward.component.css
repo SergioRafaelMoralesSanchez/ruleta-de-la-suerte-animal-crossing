@@ -16,29 +16,58 @@
   font-size: 2em;
   color: white;
 }
+h2{
+  font-size: 2em;
+}
 .bayas {
   position: absolute;
-  left: 75px;
-  top: 32px;
+  left: 23%;
+  top: 20%;
 }
 .comodin {
   position: absolute;
-  left: 75px;
-  top: 85px;
+  left: 23%;
+  top: 55%;
 }
 .mueble {
   position: absolute;
-  left: 180px;
-  top: 85px;
+  left: 55%;
+  top: 55%;
+}
+
+.ayuda {
+  position: absolute;
+  left: 85%;
+  top: 55%;
 }
 .fruta {
   position: absolute;
-  left: 280px;
-  top: 32px;
+  left: 85%;
+  top: 20%;
 }
-.ayuda {
-  position: absolute;
-  left: 280px;
-  top: 85px;
-}
+@media (max-width: 800px) {
+  .reward {
+    background-size: 272px 121px;
+    height: 121px;
+    width: 272px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+    font-size: 1.5em;
+  }
+  h2{
+    font-size: 1.5em;
+  }
  
+}
+@media (max-width: 500px) {
+  .reward {
+    background-size: 204px 91px;
+    height: 91px;
+    width: 204px;
+    font-size: 1em;
+  }
+  h2{
+    font-size: 1em;
+  }
+ 
+}
