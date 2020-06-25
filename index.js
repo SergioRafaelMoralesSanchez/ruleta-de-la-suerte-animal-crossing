@@ -63,8 +63,7 @@ io.on("connection", socket => {
 app.use(express.static(__dirname + '/dist/PasaPalabra'));
 
 app.get('*', function (req, res) {
-    // Replace the '/dist/<to_your_project_name>/index.html'
-    res.sendFile(path.join(__dirname + '/dist/PasaPalabra/index.html'));
+     res.sendFile(path.join(__dirname + '/dist/PasaPalabra/index.html'));
 });
 
 server.listen(PORT, () => {
