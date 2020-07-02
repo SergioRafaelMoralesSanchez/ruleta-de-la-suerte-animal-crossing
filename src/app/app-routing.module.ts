@@ -4,10 +4,12 @@ import { PanelComponent } from "./include/panel/panel.component";
 import { AdminPanelComponent } from "./pages/admin-panel/admin-panel.component";
 import { UserPanelComponent } from "./pages/user-panel/user-panel.component";
 import { HomeComponent } from "./pages/home/home.component";
+import { ViewerPanelComponent } from "./pages/viewer-panel/viewer-panel.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "panel", component: UserPanelComponent },
+  { path: "user/panel", component: UserPanelComponent },
+  { path: "viewer/panel", component: ViewerPanelComponent },
   { path: "admin/panel", component: AdminPanelComponent },
 ];
 

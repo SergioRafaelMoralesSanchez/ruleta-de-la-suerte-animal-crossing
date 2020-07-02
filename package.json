@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
+    "dev":"ng serve -o",
+    "devS":"nodemon index.js",
     "start": "node index.js",
     "build": "ng build --aot --prod",
     "test": "ng test",

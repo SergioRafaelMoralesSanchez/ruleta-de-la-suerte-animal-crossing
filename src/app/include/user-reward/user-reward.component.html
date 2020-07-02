@@ -1,6 +1,15 @@
-<div  [@TurnoUsuario]="estateAnimation">
+<div>
   <div class="text-center">
-    <h2 class="">{{ usuario.nombre | uppercase }}</h2>
+    <h2 class="">
+      {{ usuario.nombre | uppercase }}
+      <img
+        src="../../../assets/imgs/crown.png"
+        alt=""
+        class="corona"
+        *ngIf="usuario.isTurno"
+        srcset=""
+      />
+    </h2>
   </div>
   <div class="{{ usuario.color }}Reward reward">
     <!-- {{ usuario | json }} -->

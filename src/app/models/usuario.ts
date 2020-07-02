@@ -2,7 +2,6 @@ import { Recompensas } from "./recompensas";
 export class Usuario {
   constructor(
     public id: string,
-    public admin: boolean,
     public nombre: string,
     public room: string,
     public color: string,
@@ -10,6 +9,7 @@ export class Usuario {
     public rondaTotal: Recompensas,
     public canRuleta: boolean,
     public isTurno: boolean,
-    public resultadoRuleta: string
+    public resultadoRuleta: string,
+
   ) {}
 }

@@ -7,16 +7,21 @@
 .yellowReward {
   background-image: url("../../../assets/imgs/yellowReward.png");
 }
-.reward {
-  background-size: 340px 152px;
-  height: 152px;
-  width: 340px;
-  position: relative;
-  text-shadow: -2px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
-  font-size: 2em;
-  color: white;
+
+.corona{
+  width: 50px;;
 }
-h2{
+.reward {
+  position: relative;
+  color: white;
+  background-size: 100% 100%;
+  height: 121px;
+  width: 272px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+  font-size: 1.5em;
+}
+h2 {
   font-size: 2em;
 }
 .bayas {
@@ -45,19 +50,27 @@ h2{
   left: 85%;
   top: 20%;
 }
-@media (max-width: 800px) {
+/* @media (max-width: 1600px) {
   .reward {
-    background-size: 272px 121px;
-    height: 121px;
-    width: 272px;
+    height: 96px;
+    width: 217px;
+    font-size: 1em;
+  }
+  h2 {
+    font-size: 1em;
+  }
+} */
+@media (max-width: 1000px) {
+  .reward {
+    height: 96px;
+    width: 217px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
-    font-size: 1.5em;
+    font-size: 1em;
   }
-  h2{
-    font-size: 1.5em;
+  h2 {
+    font-size: 1em;
   }
- 
 }
 @media (max-width: 500px) {
   .reward {
@@ -66,8 +79,7 @@ h2{
     width: 204px;
     font-size: 1em;
   }
-  h2{
+  h2 {
     font-size: 1em;
   }
- 
 }

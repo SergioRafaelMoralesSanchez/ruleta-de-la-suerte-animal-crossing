@@ -1,0 +1,55 @@
+<div class="container-fluid my-5">
+  <div class="row mx-auto">
+    <div class="rewardSection topReward" *ngIf="usuarios">
+      <div *ngFor="let user of usuarios; index as i" class="reward">
+        <div>
+          <app-user-reward class="" [usuario]="user"></app-user-reward>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <app-panel [panel]="panelActual"></app-panel>
+    </div>
+    <div class="ruleta">
+      <div class="mx-auto row">
+        <div class="col-12 mx-auto">
+          <img
+            style="margin: 0 auto;"
+            src="../../../assets/imgs/logo.png"
+            class="center"
+            alt=""
+          />
+        </div>
+        <div class="col-12 mx-auto">
+          <app-ruleta [disabled]="false" [usuario]="usuarios[0]"></app-ruleta>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-5 row bottomReward">
+    <div *ngFor="let user of usuarios" class="mx-auto">
+      <div class="mt-3">
+        <app-user-reward [usuario]="user"></app-user-reward>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row mx-auto">
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+    <img src="../../../assets/imgs/arandano.png" alt="" />
+  </div> -->
+</div>

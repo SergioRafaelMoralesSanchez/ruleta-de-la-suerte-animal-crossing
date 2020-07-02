@@ -11,7 +11,7 @@
 .divRuleta {
   position: relative;
   margin: auto;
-  width: 50%;
+  width: 100%;
 }
 .disabled {
   opacity: 80%;
@@ -25,9 +25,7 @@
   #ruleta {
     margin-top: 20px;
   }
-  .divRuleta {
-    width: 60%;
-  }
+  
 }
 @media (max-width: 1000px) {
   .marcadorRuleta {

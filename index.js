@@ -19,11 +19,10 @@ io.on("connection", socket => {
     socket.on("addUser", usuario => {
         if (usuario !== undefined) {
 
-            if (currentRoom.usuarios.length < 4) {
-                if (!usuario.admin) {
-                    usuario.id = '_' + Math.random().toString(36).substr(2, 9);
-                    usuario.color = giveMeFreeColor();
-                }
+            if (currentRoom.usuarios.length < 3) {
+                usuario.id = '_' + Math.random().toString(36).substr(2, 9);
+                usuario.color = giveMeFreeColor();
+
                 currentRoom.usuarios[currentRoom.usuarios.length] = usuario
                 io.emit("users", currentRoom.usuarios);
             }
@@ -36,7 +35,10 @@ io.on("connection", socket => {
             result = true
         }
         socket.emit("logInResponse", result);
-
+    });
+    socket.on("updateSpin", ruleta => {
+        console.log(ruleta)
+        io.emit("roulete", ruleta);
     });
     socket.on("changePanel", panel => {
         io.emit("panel", panel);
@@ -57,13 +59,16 @@ io.on("connection", socket => {
             io.emit("users", currentRoom.usuarios);
         }
     });
+    // if (currentRoom.usuarios.length !== 0) {
+    //     io.emit("users", currentRoom.usuarios);
+    // }
 
 });
 
 app.use(express.static(__dirname + '/dist/PasaPalabra'));
 
 app.get('*', function (req, res) {
-     res.sendFile(path.join(__dirname + '/dist/PasaPalabra/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/PasaPalabra/index.html'));
 });
 
 server.listen(PORT, () => {

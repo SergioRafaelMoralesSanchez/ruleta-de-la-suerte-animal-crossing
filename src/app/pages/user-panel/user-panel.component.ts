@@ -13,7 +13,6 @@ import Swal from "sweetalert2";
 })
 export class UserPanelComponent implements OnInit {
   userPanel: Panel;
-  indexUsuario: number;
   usuarios: Usuario[];
   usuario: Usuario;
   ready = false;
@@ -24,9 +23,7 @@ export class UserPanelComponent implements OnInit {
     "",
     ""
   );
-  constructor(private socketService: SocketService, private router: Router) {
-    this.indexUsuario = 0;
-  }
+  constructor(private socketService: SocketService, private router: Router) {}
 
   ngOnInit() {
     this.socketService.currentPanel.subscribe((panel) => {
@@ -79,7 +76,6 @@ export class UserPanelComponent implements OnInit {
         }
         this.usuario = new Usuario(
           null,
-          false,
           nombre,
           "",
           "",

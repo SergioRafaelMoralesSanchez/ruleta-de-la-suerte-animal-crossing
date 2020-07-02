@@ -3,7 +3,7 @@
   <img
     src="./assets/imgs/RULETA.png"
     id="ruleta"
-    [class]="usuario.canRuleta ? '' : 'disabled'"
+    [class]="usuario.canRuleta || !disabled ? '' : 'disabled'"
     alt=""
     title="{{
       usuario.canRuleta

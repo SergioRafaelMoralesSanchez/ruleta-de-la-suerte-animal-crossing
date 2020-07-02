@@ -1,4 +1,4 @@
-<div class="container" *ngIf="logged">
+<div class="container mb-5" *ngIf="logged">
   <div class="mt-5" style="min-height: 450px;">
     <app-panel [panel]="adminPanel"></app-panel>
   </div>
@@ -100,7 +100,7 @@
     </div>
     <div class="mt-5">
       <div *ngFor="let user of usuarios; index as i">
-        <div *ngIf="!user.admin" class="row my-5 panelControls">
+        <div class="row my-5 panelControls">
           <div class="mr-auto">
             <app-user-reward [usuario]="user"></app-user-reward>
           </div>

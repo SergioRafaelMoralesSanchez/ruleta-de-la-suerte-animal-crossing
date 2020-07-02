@@ -14,6 +14,7 @@ import { UserPanelComponent } from "./pages/user-panel/user-panel.component";
 import { UserRewardComponent } from "./include/user-reward/user-reward.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { environment } from "./../environments/environment";
+import { ViewerPanelComponent } from './pages/viewer-panel/viewer-panel.component';
 const config: SocketIoConfig = {
   url: environment.apiUrl,
   options: { forceNew: false },
@@ -28,6 +29,7 @@ const config: SocketIoConfig = {
     UserPanelComponent,
     UserRewardComponent,
     HomeComponent,
+    ViewerPanelComponent,
   ],
   imports: [
     BrowserModule,

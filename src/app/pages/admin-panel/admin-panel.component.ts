@@ -15,16 +15,9 @@ import Swal from "sweetalert2";
 })
 export class AdminPanelComponent implements OnInit {
   logged = false;
-  adminPanel = new Panel(
-    "sala",
-    [],
-    [],
-    "",
-    ""
-  );
-   text = "TEXTO DE EJEMPLO HOLA MUY BUENAS";
+  adminPanel = new Panel("sala", [], [], "", "");
+  text = "TEXTO DE EJEMPLO HOLA MUY BUENAS";
   showText = false;
-  adminUser: Usuario;
   currentUserIndex: number;
   currentUserReward: number;
   rewards: any;
@@ -33,28 +26,14 @@ export class AdminPanelComponent implements OnInit {
   constructor(public socketService: SocketService, private router: Router) {}
   ngOnInit(): void {
     this.vamohAEllo();
-    this.adminUser = new Usuario(
-      "99",
-      true,
-      "Mariche la mas Mejor",
-      "sala",
-      "red",
-      new Recompensas(0, 0, 0, 0, 0),
-      new Recompensas(0, 0, 0, 0, 0),
-      false,
-      false,
-      ""
-    );
     this.doSocketServices();
   }
   doSocketServices() {
     this.checkLogin();
-    this.socketService.addUser(this.adminUser);
+    // this.logged = true;
+
     this.socketService.users.subscribe((users) => {
       this.usuarios = users;
-    });
-    this.socketService.currentUser.subscribe((user) => {
-      this.adminUser = user;
     });
   }
   checkLogin() {
@@ -243,9 +222,5 @@ export class AdminPanelComponent implements OnInit {
       usr.id === user.id ? (usr.isTurno = user.isTurno) : (usr.isTurno = false);
       return usr;
     });
-  }
-  @HostListener("window:beforeunload")
-  doSomething() {
-    this.socketService.deleteUser(this.adminUser);
   }
 }
