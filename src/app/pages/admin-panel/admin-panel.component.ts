@@ -25,6 +25,7 @@ export class AdminPanelComponent implements OnInit {
   usuarios: Usuario[];
   constructor(public socketService: SocketService, private router: Router) {}
   ngOnInit(): void {
+    this.socketService.replayEverything();
     this.vamohAEllo();
     this.doSocketServices();
   }
@@ -221,6 +222,23 @@ export class AdminPanelComponent implements OnInit {
     this.usuarios = this.usuarios.map((usr) => {
       usr.id === user.id ? (usr.isTurno = user.isTurno) : (usr.isTurno = false);
       return usr;
+    });
+  }
+  expulsarUsuario(user: Usuario) {
+    Swal.fire({
+      title: "Cuidado",
+      html: `Estas a punto de echar a ${user.nombre} de la partida <br> ¿Estas segura?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Expulsar!",
+      cancelButtonText: "Wait NO",
+    }).then((result) => {
+      if (result.value) {
+        this.socketService.ejectUser(user); 
+        // Swal.fire("Expulsado!", `El usuario ${user.nombre} ha sido expulsado con exito`, "success");
+      }
     });
   }
 }

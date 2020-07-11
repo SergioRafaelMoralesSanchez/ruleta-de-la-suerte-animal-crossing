@@ -12,7 +12,13 @@ export class SocketService {
   users = this.socket.fromEvent<Usuario[]>("users");
   currentPanel = this.socket.fromEvent<Panel>("panel");
   roulete = this.socket.fromEvent<any>("roulete");
+  expulsado = this.socket.fromEvent<Usuario>("expulsado");
 
+  replayEverything(){
+    this.socket.emit("replayEverything");
+console.log("asdkahbjdbasjbsadjadsk");
+
+  }
   updateRoulette(ruleta: any) {
     this.socket.emit("updateSpin", ruleta);
   }
@@ -34,5 +40,8 @@ export class SocketService {
   }
   deleteUser(user: Usuario) {
     this.socket.emit("removeUser", user);
+  }
+  ejectUser(user: Usuario) {
+    this.socket.emit("ejectUser", user);
   }
 }

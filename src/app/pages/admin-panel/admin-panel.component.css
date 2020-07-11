@@ -1,16 +1,35 @@
 .container {
-  width: 100%;
+    width: 100%;
 }
+
 .panelControls {
-  background-color: rgb(124, 231, 255);
-  border-radius: 10px;
-  border: 2px solid #007cff;
-  padding: 20px;
+    background-color: rgb(124, 231, 255);
+    border-radius: 10px;
+    border: 2px solid #007cff;
+    padding: 20px;
 }
-.icoReward{
+
+.icoReward {
     width: 30px;
     opacity: 50%;
 }
-.selected{
+
+.selected {
     opacity: 100%;
+}
+
+.panel {
+    width: 80%;
+}
+
+@media (max-width: 1600px) {
+    .panel {
+        width: 75%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .panel {
+        width: 100%;
+    }
 }

@@ -1,90 +1,88 @@
 .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
+
 .reward {
-  margin-bottom: 7vh;
+    margin-bottom: 7vh;
 }
+
 .topReward {
-  display: block;
+    display: block;
 }
+
 .bottomReward {
-  display: none;
+    display: none;
 }
+
 .panel {
-  width: 60%;
+    width: 60%;
 }
 
 .ruleta {
-  width: 25%;
-}
-.rewardSection {
-  width: 15%;
-}
-@media (max-width: 1600px) {
-  .panel {
-    width: 75%;
-  }
-
-  .ruleta {
     width: 25%;
-  }
-  .topReward {
-    display: none;
-  }
-  .bottomReward {
-    display: flex;
-  }
+}
+
+.rewardSection {
+    width: 15%;
+}
+
+@media (max-width: 1600px) {
+    .panel {
+        width: 75%;
+    }
+    .ruleta {
+        width: 25%;
+    }
+    .topReward {
+        display: none;
+    }
+    .bottomReward {
+        display: flex;
+    }
 }
 
 @media (max-width: 1300px) {
-  .panel {
-    width: 100%;
-  }
-  .center {
-    display: none;
-  }
-  .ruleta {
-    width: 40%;
-    margin: 20px auto;
-  }
-  
+    .panel {
+        width: 100%;
+    }
+    .center {
+        display: none;
+    }
+    .ruleta {
+        width: 40%;
+        margin: 20px auto;
+    }
 }
 
 @media (max-width: 1000px) {
- 
-  .center {
-    display: none;
-  }
-  .ruleta {
-    width: 70%;
-   }
-  
+    .center {
+        display: none;
+    }
+    .ruleta {
+        width: 70%;
+    }
 }
+
 @media (max-width: 800px) {
- 
-  .center {
-    display: none;
-  }
-  .ruleta {
-    width: 80%;
-   }
-  
+    .center {
+        display: none;
+    }
+    .ruleta {
+        width: 80%;
+    }
 }
 
 @media (max-width: 700px) {
- 
-  .ruleta {
-    width: 90%;
-   }
-  
+    .ruleta {
+        width: 90%;
+    }
 }
+
 @media (max-width: 550px) {
- 
-  .ruleta {
-    width: 100%;
-   }
-  
+    .ruleta {
+        width: 100%;
+    }
 }

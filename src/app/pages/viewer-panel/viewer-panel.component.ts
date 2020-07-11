@@ -13,6 +13,7 @@ declare function updateClicame(): any; // just change here from arun answer.
 })
 export class ViewerPanelComponent implements OnInit {
   usuarios: Usuario[];
+  publico = this.shuffle(Array(15).fill(0).map((x, i) => i + 1));
   panelActual = new Panel(
     "",
     ["VOY CONTIGO ", "  PIPO Y CON  ", "JAMON DE YO "],
@@ -20,14 +21,27 @@ export class ViewerPanelComponent implements OnInit {
     "",
     ""
   );
-
   constructor(private socketService: SocketService) {
-    this.usuarios = [];
+    this.usuarios = [new Usuario(
+      null,
+      "",
+      "",
+      "",
+      new Recompensas(0, 0, 0, 0, 0),
+      new Recompensas(0, 0, 0, 0, 0),
+      false,
+      false,
+      ""
+    ),];
+    console.log(this.publico);
+
   }
   ngOnInit() {
+
     this.socketService.currentPanel.subscribe((panel) => {
       this.panelActual = panel;
     });
+    this.socketService.replayEverything();
     this.socketService.roulete.subscribe((roulete) => {
       if (roulete.spin) {
         updateClicame();
@@ -39,5 +53,12 @@ export class ViewerPanelComponent implements OnInit {
     this.socketService.users.subscribe((usuarios) => {
       this.usuarios = usuarios;
     });
+  }
+  shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   }
 }

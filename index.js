@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 var currentRoom = { id: "sala", usuarios: [] };
 const colors = ["red", "blue", "yellow"]
 const crypto = require('./src/crypto')
-
+var currentPanel = null;
 
 io.on("connection", socket => {
 
@@ -25,15 +25,29 @@ io.on("connection", socket => {
 
                 currentRoom.usuarios[currentRoom.usuarios.length] = usuario
                 io.emit("users", currentRoom.usuarios);
+                console.log({
+                    currentRoom
+                });
+                socket.emit("currentUser", usuario);
             }
-            socket.emit("currentUser", usuario);
         }
     });
+    socket.on("replayEverything", () => {
+        if (currentRoom.usuarios.length !== 0) {
+            io.emit("users", currentRoom.usuarios);
+        }
+         if (currentPanel !== null) {
+            io.emit("panel", currentPanel);
+        }
+
+    });
+
     socket.on("checkLogIn", password => {
         let result = false
         if (crypto.encrypt(password) === crypto.passEncrypt) {
             result = true
         }
+
         socket.emit("logInResponse", result);
     });
     socket.on("updateSpin", ruleta => {
@@ -41,6 +55,7 @@ io.on("connection", socket => {
         io.emit("roulete", ruleta);
     });
     socket.on("changePanel", panel => {
+        currentPanel = panel;
         io.emit("panel", panel);
     });
 
@@ -59,15 +74,20 @@ io.on("connection", socket => {
             io.emit("users", currentRoom.usuarios);
         }
     });
-    // if (currentRoom.usuarios.length !== 0) {
-    //     io.emit("users", currentRoom.usuarios);
-    // }
+    socket.on("ejectUser", usuario => {
+        if (usuario !== null) {
+            deleteUsuario(usuario);
+            io.emit("expulsado", usuario);
+            io.emit("users", currentRoom.usuarios);
+        }
+    });
+
 
 });
 
 app.use(express.static(__dirname + '/dist/PasaPalabra'));
 
-app.get('*', function (req, res) {
+app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/dist/PasaPalabra/index.html'));
 });
 
@@ -79,6 +99,7 @@ server.listen(PORT, () => {
 function updateUsuarios(usuario) {
     currentRoom.usuarios = currentRoom.usuarios.map(user => user.id === usuario.id ? usuario : user)
 }
+
 function giveMeFreeColor() {
     let usados = []
     if (currentRoom.usuarios.length === 1 && currentRoom.usuarios[0].admin) {
@@ -93,6 +114,7 @@ function giveMeFreeColor() {
     })
     return copiaColors[0]
 }
+
 function deleteUsuario(usuario) {
     if (usuario !== null && usuario.id !== null) {
         currentRoom.usuarios = currentRoom.usuarios.filter(user => user.id !== usuario.id)

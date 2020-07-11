@@ -1,15 +1,15 @@
-<div class="container mb-5" *ngIf="logged">
-  <div class="mt-5" style="min-height: 450px;">
+<div class="mb-5" *ngIf="logged">
+  <div class="mt-2 mx-auto panel" style="min-height: 450px;">
     <app-panel [panel]="adminPanel"></app-panel>
   </div>
-  <div class="container mt-5">
+  <div class="mt-2 mx-auto" style="width: 80%;">
     <div class="mx-auto panelControls">
       <div class="row">
         <div class="col-12">
           <div class="form-group">
-            <label class="font-weight-bold" for="panelInput"
-              >Frase del panel</label
-            >
+            <label class="font-weight-bold" for="panelInput">
+              Frase del panel
+            </label>
             <input
               type="text"
               class="form-control"
@@ -103,6 +103,15 @@
         <div class="row my-5 panelControls">
           <div class="mr-auto">
             <app-user-reward [usuario]="user"></app-user-reward>
+            <div class="mt-2 d-flex">
+              <button
+                type="button"
+                (click)="expulsarUsuario(user)"
+                class="btn btn-danger btn-lg mx-auto btn-block"
+              >
+                Expulsar usuario
+              </button>
+            </div>
           </div>
           <div class="ml-auto" style="position: relative;">
             <div class="row">
@@ -204,6 +213,4 @@
       </div>
     </div>
   </div>
-
-  <!-- {{ currentUser | json }} -->
 </div>

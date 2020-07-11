@@ -8,17 +8,18 @@ function updateClicame() {
     if (clicame) {
         youSpinMe = setInterval(aPorElBote, 100);
         clicame = false
-        // setTimeout(() => {
-        //     clearInterval(youSpinMe)
-        // }, 8000);
+            // setTimeout(() => {
+            //     clearInterval(youSpinMe)
+            // }, 8000);
         lastAngle = -1
     } else {
         clearInterval(youSpinMe)
         clicame = true
-        
+
     }
     return lastAngle
 }
+
 function aPorElBote() {
     let angle = Math.floor(Math.random() * 360) + 360;
 
@@ -26,20 +27,17 @@ function aPorElBote() {
 
     spinMe(angle);
 }
+
 function spinMe(angle) {
 
     var $elem = $('#ruleta');
     var duration = 100;
     $({ deg: 0 }).animate({ deg: angle }, {
         duration: duration,
-        step: function (now) {
+        step: function(now) {
             $elem.css({
                 'transform': 'rotate(' + now + 'deg)'
             });
         }
     });
-}
-module.exports.spinMe = (angle) => {
-    spinMe(angle);
-
 }

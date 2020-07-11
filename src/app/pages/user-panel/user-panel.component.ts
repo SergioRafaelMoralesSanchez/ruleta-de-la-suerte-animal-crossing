@@ -3,8 +3,9 @@ import { Usuario } from "../../models/usuario";
 import { Recompensas } from "src/app/models/recompensas";
 import { SocketService } from "../../services/socket.service";
 import { Panel } from "../../models/panel";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute, CanDeactivate } from "@angular/router";
 import Swal from "sweetalert2";
+import { LocationStrategy } from "@angular/common";
 
 @Component({
   selector: "app-user-panel",
@@ -23,7 +24,23 @@ export class UserPanelComponent implements OnInit {
     "",
     ""
   );
-  constructor(private socketService: SocketService, private router: Router) {}
+  constructor(
+    private socketService: SocketService,
+    private router: Router,
+    private locationStrategy: LocationStrategy
+  ) {
+    this.usuario = new Usuario(
+      null,
+      "",
+      "",
+      "",
+      new Recompensas(0, 0, 0, 0, 0),
+      new Recompensas(0, 0, 0, 0, 0),
+      false,
+      false,
+      ""
+    );
+  }
 
   ngOnInit() {
     this.socketService.currentPanel.subscribe((panel) => {
@@ -52,13 +69,33 @@ export class UserPanelComponent implements OnInit {
           this.usuario = user;
         }
       });
+
       this.usuarios = usuarios;
+    });
+    this.socketService.expulsado.subscribe((user) => {
+      if (user.id === this.usuario.id) {
+        Swal.fire({
+          icon: "error",
+          title: "Te han expulsado",
+          text: "Disculpa pero por tu comportamiendo hemos decidido expulsarte",
+        }).then(() => {
+           this.router.navigateByUrl("/");
+        });
+      }
     });
   }
   @HostListener("window:beforeunload")
+  @HostListener("window:popstate")
   doSomething() {
     this.socketService.deleteUser(this.usuario);
+    this.usuario = null;
+    alert("asdaasd");
+    history.pushState(null, null, location.href);
+    this.locationStrategy.onPopState(() => {
+      history.pushState(null, null, location.href);
+    });
   }
+
   requestName() {
     Swal.fire({
       title: "¿Como quieres que te llamemos?",
@@ -90,7 +127,6 @@ export class UserPanelComponent implements OnInit {
     });
     // this.usuario = new Usuario(
     //   null,
-    //   false,
     //   "nombre",
     //   "",
     //   "",
