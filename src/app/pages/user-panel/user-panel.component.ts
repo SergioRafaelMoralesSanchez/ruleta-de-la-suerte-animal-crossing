@@ -88,12 +88,6 @@ export class UserPanelComponent implements OnInit {
   @HostListener("window:popstate")
   doSomething() {
     this.socketService.deleteUser(this.usuario);
-    this.usuario = null;
-    alert("asdaasd");
-    history.pushState(null, null, location.href);
-    this.locationStrategy.onPopState(() => {
-      history.pushState(null, null, location.href);
-    });
   }
 
   requestName() {
