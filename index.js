@@ -51,7 +51,6 @@ io.on("connection", socket => {
         socket.emit("logInResponse", result);
     });
     socket.on("updateSpin", ruleta => {
-        console.log(ruleta)
         io.emit("roulete", ruleta);
     });
     socket.on("changePanel", panel => {

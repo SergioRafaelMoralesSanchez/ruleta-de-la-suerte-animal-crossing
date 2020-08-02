@@ -33,7 +33,6 @@ export class ViewerPanelComponent implements OnInit {
       false,
       ""
     ),];
-    console.log(this.publico);
 
   }
   ngOnInit() {

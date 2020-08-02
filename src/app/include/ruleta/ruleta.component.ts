@@ -43,8 +43,6 @@ export class RuletaComponent implements OnInit {
   aPorElBoteJS() {
     if (this.usuario.canRuleta) {
       const anguloRuleta = updateClicame();
-      console.log(anguloRuleta);
-
       if (anguloRuleta !== -1) {
         this.usuario.resultadoRuleta = this.aaryPremios[
           Math.round(anguloRuleta / 18) === 20

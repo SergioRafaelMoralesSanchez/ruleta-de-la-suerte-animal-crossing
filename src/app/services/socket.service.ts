@@ -16,8 +16,6 @@ export class SocketService {
 
   replayEverything(){
     this.socket.emit("replayEverything");
-console.log("asdkahbjdbasjbsadjadsk");
-
   }
   updateRoulette(ruleta: any) {
     this.socket.emit("updateSpin", ruleta);
